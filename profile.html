@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./bottom-navigation.css" />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .profile-header {
+        background: linear-gradient(135deg, #00d4ff 0%, #00a7ff 100%);
+        border-radius: 0 0 20px 20px;
+        padding: 2rem 1rem;
+        color: white;
+      }
+      .menu-item {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        color: #333;
+        text-decoration: none;
+      }
+      .menu-item:hover {
+        background-color: #f8f9fa;
+      }
+      .profile-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .category-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .category-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .category-tab {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        margin: 0 0.5rem;
+        border-radius: 20px;
+        background: #e9ecef;
+        color: #495057;
+        text-decoration: none;
+      }
+      .category-tab.active {
+        background: #00a7ff;
+        color: white;
+      }
+      .listing-card {
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.2s;
+      }
+      .listing-card:hover {
+        transform: translateY(-5px);
+      }
+      .listing-image {
+        height: 200px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Profile Header -->
+    <div class="profile-header mb-4">
+      <div class="container">
+        <div class="d-flex align-items-center gap-3">
+          <!-- make the profile image a link to the profile page -->
+          <img
+            src="https://picsum.photos/60"
+            alt="Profile"
+            class="profile-avatar"
+          />
+          <div>
+            <h5 class="mb-0">Ghoul Chouaib</h5>
+            <small>Ghoul.Chouaib@gmail.com</small>
+            <div>+213 687544622</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Items -->
+    <div class="container mb-5 pb-5">
+      <div class="bg-white rounded-3 shadow-sm mb-4">
+        <a
+          href="./booking.html"
+          class="d-flex justify-content-between align-items-center menu-item"
+        >
+          <div><i class="bi bi-calendar me-2"></i> الحجوزات الخاصة بي</div>
+          <i class="bi bi-chevron-left"></i>
+        </a>
+        <a
+          href="./payment.html"
+          class="d-flex justify-content-between align-items-center menu-item"
+        >
+          <div><i class="bi bi-credit-card me-2"></i> طرق الدفع</div>
+          <i class="bi bi-chevron-left"></i>
+        </a>
+        <a
+          href="#"
+          class="d-flex justify-content-between align-items-center menu-item"
+        >
+          <div><i class="bi bi-gear me-2"></i> الاعدادات</div>
+          <i class="bi bi-chevron-left"></i>
+        </a>
+        <a
+          href="login.html"
+          class="d-flex justify-content-between align-items-center menu-item"
+        >
+          <div><i class="bi bi-box-arrow-right me-2"></i> تسجيل الخروج</div>
+          <i class="bi bi-chevron-left"></i>
+        </a>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs mb-3">
+        <a href="#hotels" class="category-tab active">فنادق</a>
+        <a href="#restaurants" class="category-tab">مطاعم</a>
+        <a href="#cars" class="category-tab">سيارات</a>
+      </div>
+
+      <!-- Hotels Section -->
+      <section id="hotels" class="mb-4">
+        <h5 class="mb-3">فنادق بالقرب منك</h5>
+        <div class="row g-3">
+          <!-- Hotel Cards (as before) -->
+
+          <div class="col-md-4">
+            <div class="card listing-card">
+              <img
+                src="https://picsum.photos/400/200?random=1"
+                class="hotel-image"
+                alt="Sofitel"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Sofitel Algiers</h6>
+                <p class="card-text text-muted small">Hamma, Alger</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>18000 د.ج/الليلة</div>
+                  <div><i class="bi bi-star-fill text-warning"></i> 4.5</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card listing-card">
+              <img
+                src="https://picsum.photos/400/200?random=2"
+                class="hotel-image"
+                alt="Hotel Sidi"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Hotel Sidi Yahia</h6>
+                <p class="card-text text-muted small">Hydra, Alger</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>14000 د.ج/الليلة</div>
+                  <div><i class="bi bi-star-fill text-warning"></i> 4.0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card listing-card">
+              <img
+                src="https://picsum.photos/400/200?random=3"
+                class="hotel-image"
+                alt="Marriott"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Algiers Marriott</h6>
+                <p class="card-text text-muted small">Hotel Bab Ezzouar</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>12000 د.ج/الليلة</div>
+                  <div><i class="bi bi-star-fill text-warning"></i> 4.0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Restaurants Section -->
+      <section id="restaurants" class="mb-4">
+        <h5 class="mb-3">مطاعم بالقرب منك</h5>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card listing-card">
+              <img
+                src="https://picsum.photos/400/200?random=4"
+                class="listing-image"
+                alt="Restaurant 1"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Le Vendome</h6>
+                <p class="card-text text-muted small">Hydra, Alger</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>متوسط السعر: 3500 د.ج</div>
+                  <div><i class="bi bi-star-fill text-warning"></i> 4.7</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Add more restaurant cards -->
+        </div>
+      </section>
+
+      <!-- Car Agencies Section -->
+      <section id="cars" class="mb-4">
+        <h5 class="mb-3">وكالات السيارات بالقرب منك</h5>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card listing-card">
+              <img
+                src="https://picsum.photos/400/200?random=7"
+                class="listing-image"
+                alt="Car Agency 1"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Europcar Algiers</h6>
+                <p class="card-text text-muted small">Bab Ezzouar, Alger</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>من 8000 د.ج/اليوم</div>
+                  <div><i class="bi bi-star-fill text-warning"></i> 4.3</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Add more car agency cards -->
+        </div>
+      </section>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav py-2 fixed-bottom">
+      <div class="container">
+        <div class="row g-0 text-center">
+          <div class="col">
+            <a href="home.html" class="nav-link">
+              <i class="bi bi-house nav-icon"></i>
+              <span>Home</span>
+            </a>
+          </div>
+          <div class="col">
+            <a href="booking.html" class="nav-link">
+              <i class="bi bi-calendar2 nav-icon"></i>
+              <span>Booking</span>
+            </a>
+          </div>
+          <div class="col">
+            <a href="bookmark.html" class="nav-link">
+              <i class="bi bi-heart nav-icon"></i>
+              <span>Saved</span>
+            </a>
+          </div>
+          <div class="col">
+            <a href="profile.html" class="nav-link active">
+              <i class="bi bi-person nav-icon"></i>
+              <span>Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(() => {
+          document.querySelector(".category-tabs a").click();
+        }, 200);
+        // Add event listeners for the bottom navigation links
+        document.querySelectorAll(".category-tabs a").forEach((link) => {
+          link.addEventListener("click", (event) => {
+            /*make the latest clicked category button with active class and remove it from the previous one */
+            const previous = document
+              .querySelector(".category-tabs a.active")
+              .classList.remove("active");
+
+            /* get the latest clicked element index in the list */
+            const latest = Array.prototype.indexOf.call(
+              document.querySelectorAll(".category-tabs a"),
+              event.target
+            );
+
+            /* make the latest clicked category button with active class and hide the sections which have an index other than it in the secitons list  */
+            const sections = [...document.querySelectorAll("section")];
+            console.log(sections);
+            for (let i = 0, len = sections.length; i < len; i++) {
+              if (i !== latest) {
+                sections[i].style.display = "none";
+              } else {
+                sections[i].style.display = "block";
+              }
+            }
+            /*make the latest clicked category button with active class*/
+            event.target.classList.add("active");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل الدخول</title>
+
+    <!-- Bootstrap 5 RTL CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+    />
+
+    <!-- Google Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .login-container {
+        max-width: 400px;
+        margin: 2rem auto;
+        padding: 2rem 1rem;
+      }
+
+      .google-btn {
+        border: 1px solid #dee2e6;
+        background-color: white;
+      }
+
+      .google-btn img {
+        width: 20px;
+        height: 20px;
+        margin-left: 8px;
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 1rem 0;
+      }
+
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .divider span {
+        padding: 0 1rem;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-container">
+        <!-- Header -->
+        <div class="text-center mb-4">
+          <h1 class="h3 mb-2 fst-bold">مرحبا !</h1>
+          <p class="text-muted">مرحبا بعودتك ! مجددا</p>
+        </div>
+
+        <!-- Login Form -->
+
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label"
+              >عنوان البريد الالكتروني</label
+            >
+            <div class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                value="GhoulChouaib@gmail.com"
+              />
+              <span class="input-group-text">
+                <i class="material-icons">mail</i>
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">كلمة المرور</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="password" />
+              <span class="input-group-text">
+                <i class="material-icons">lock</i>
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-3 text-end">
+            <a href="#" class="text-decoration-none text-muted"
+              >نسيت كلمة السر؟</a
+            >
+          </div>
+
+          <a href="home.html" class="btn btn-info text-white w-100 mb-3">
+            تسجيل الدخول
+          </a>
+
+          <div class="divider">
+            <span>او</span>
+          </div>
+
+          <button
+            type="button"
+            class="btn rounded rounded-4 btn-outline-info w-100"
+          >
+            تسجيل الدخول مع جوجل
+            <img src="https://www.google.com/favicon.ico" alt="Google Icon" />
+          </button>
+
+          <div class="text-center mt-4">
+            <span class="text-muted">ليس لديك حساب؟</span>
+            <a href="#" class="link-info text-decoration-none"> انشاء حساب!</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
