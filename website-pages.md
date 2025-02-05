@@ -17,4 +17,6 @@ https://poe.com/s/7GLslqOpliDFVg2aHJIt
 https://poe.com/s/AIeOXWy6g3CiIffBAGa8
 profile
 
+https://poe.com/s/2FUdfoxQvCpJ8fNDdjFe
 payment page
+settings
