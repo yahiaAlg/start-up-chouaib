@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algiers Marriott Hotel Bab Ezzouar</title>
+    <!-- Bootstrap RTL CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Lightbox CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="bottom-navigation.css" />
+    <style>
+      :root {
+        --primary-color: #00bcd4;
+      }
+      .main-image-container {
+        position: relative;
+        height: 70vh;
+        width: 100%;
+        border-radius: 0;
+        overflow: hidden;
+      }
+      .main-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .thumbnail-container {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+      }
+      .gallery-thumbnail {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 2px solid white;
+      }
+      .favorite-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .book-now-container {
+        background: white;
+        padding: 15px;
+        border-top: 1px solid #eee;
+        margin-bottom: 6rem;
+      }
+      .amenity-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      .amenity-check {
+        color: var(--primary-color);
+      }
+
+      .content-container {
+        padding-bottom: 1rem; /* Increased padding to prevent content from being hidden */
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 1rem; /* Add space before the fixed bottom elements */
+      }
+
+      .service-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .service-check {
+        color: #00bcd4;
+        width: 20px;
+        flex-shrink: 0;
+      }
+
+      /* Base Lightbox styles */
+      .lightbox-image {
+        width: 90vw !important; /* Default width for smaller screens */
+        height: 60vh !important; /* Default height for smaller screens */
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+        max-width: 100%; /* Ensures the image doesn't exceed its container */
+      }
+
+      /* Medium screens (tablets) */
+      @media (min-width: 768px) {
+        .lightbox-image {
+          width: 70vw !important;
+          height: 70vh !important;
+        }
+      }
+
+      /* Large screens (desktops) */
+      @media (min-width: 1024px) {
+        .lightbox-image {
+          width: 800px !important; /* Fixed width for large screens */
+          height: 600px !important; /* Fixed height for large screens */
+        }
+      }
+
+      .car-card {
+        border-radius: 1rem;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .car-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .car-image-container {
+        height: 180px;
+        position: relative;
+      }
+      .car-image-container:first-of-type {
+        margin: 5%;
+        height: 100%;
+      }
+
+      .car-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .car-image {
+        border-radius: 25px;
+      }
+      .favorite-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .favorite-btn:hover {
+        background-color: rgba(255, 255, 255, 1);
+      }
+
+      .specs {
+        font-size: 0.9rem;
+        color: #666;
+        direction: rtl;
+      }
+
+      .price {
+        direction: rtl;
+      }
+
+      .price-amount {
+        color: #0d6efd;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .price-currency {
+        color: #666;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Main Image with Thumbnails -->
+      <div class="main-image-container rounded rounded-bottom-5">
+        <a href="https://picsum.photos/1200/800" data-lightbox="hotel-gallery">
+          <img
+            src="https://picsum.photos/1200/800"
+            alt="Hotel Main Image"
+            class="main-image"
+          />
+        </a>
+        <button class="back-btn">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <button class="favorite-btn">
+          <i class="fa-regular fa-heart text-danger"></i>
+        </button>
+        <div class="thumbnail-container">
+          <a
+            href="https://picsum.photos/200/200?random=1"
+            data-lightbox="hotel-gallery"
+          >
+            <img
+              src="https://picsum.photos/200/200?random=1"
+              class="gallery-thumbnail"
+              alt="Gallery 1"
+            />
+          </a>
+          <a
+            href="https://picsum.photos/200/200?random=2"
+            data-lightbox="hotel-gallery"
+          >
+            <img
+              src="https://picsum.photos/200/200?random=2"
+              class="gallery-thumbnail"
+              alt="Gallery 2"
+            />
+          </a>
+          <a
+            href="https://picsum.photos/200/200?random=3"
+            data-lightbox="hotel-gallery"
+          >
+            <img
+              src="https://picsum.photos/200/200?random=3"
+              class="gallery-thumbnail"
+              alt="Gallery 3"
+            />
+          </a>
+        </div>
+      </div>
+
+      <!-- Content Container -->
+      <div class="content-container">
+        <h2 class="fs-5 fw-bold mb-3">السيارات</h2>
+        <div
+          class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3"
+        >
+          <div class="col">
+            <div class="car-card shadow">
+              <div class="car-image-container">
+                <img
+                  src="https://picsum.photos/200/200?random=4"
+                  alt="Dacia"
+                  class="car-image"
+                />
+                <button class="favorite-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <div class="p-3">
+                <h5 class="mb-2">Dacia</h5>
+                <p class="specs mb-2">يدوي - بنزين - 5 مقاعد</p>
+                <div
+                  class="price d-flex justify-content-end align-items-center"
+                >
+                  <span class="price-currency me-1">يوم /</span>
+                  <span class="price-amount mx-1">6000</span>
+                  <span class="price-currency">د.ج</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="car-card shadow">
+              <div class="car-image-container">
+                <img
+                  src="https://picsum.photos/200/200?random=5"
+                  alt="BMW"
+                  class="car-image"
+                />
+                <button class="favorite-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <div class="p-3">
+                <h5 class="mb-2">BMW</h5>
+                <p class="specs mb-2">اوتوماتيك - ديزل - 5 مقاعد</p>
+                <div
+                  class="price d-flex justify-content-end align-items-center"
+                >
+                  <span class="price-currency me-1">يوم /</span>
+                  <span class="price-amount mx-1">15000</span>
+                  <span class="price-currency">د.ج</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="car-card shadow">
+              <div class="car-image-container">
+                <img
+                  src="https://picsum.photos/200/200?random=6"
+                  alt="Mercedes"
+                  class="car-image"
+                />
+                <button class="favorite-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <div class="p-3">
+                <h5 class="mb-2">Mercedes</h5>
+                <p class="specs mb-2">اوتوماتيك - ديزل - 5 مقاعد</p>
+                <div
+                  class="price d-flex justify-content-end align-items-center"
+                >
+                  <span class="price-currency me-1">يوم /</span>
+                  <span class="price-amount mx-1">13000</span>
+                  <span class="price-currency">د.ج</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="car-card shadow">
+              <div class="car-image-container">
+                <img
+                  src="https://picsum.photos/200/200?random=7"
+                  alt="Porsche"
+                  class="car-image"
+                />
+                <button class="favorite-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <div class="p-3">
+                <h5 class="mb-2">Porsche</h5>
+                <p class="specs mb-2">اوتوماتيك - ديزل - 5 مقاعد</p>
+                <div
+                  class="price d-flex justify-content-end align-items-center"
+                >
+                  <span class="price-currency me-1">يوم /</span>
+                  <span class="price-amount mx-1">25000</span>
+                  <span class="price-currency">د.ج</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book Now Bar -->
+      <div class="book-now-container">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <small class="text-muted">ابتداءً من</small>
+            <div class="fw-bold">12000 دج / الليلة</div>
+          </div>
+          <button class="btn btn-primary px-5">احجز الآن</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+
+    <nav class="bottom-nav py-2 fixed-bottom">
+      <div class="container">
+        <div class="row g-0 text-center">
+          <div class="col">
+            <a href="home.html" class="nav-link active">
+              <i class="bi bi-house nav-icon"></i>
+              <span>Home</span>
+            </a>
+          </div>
+          <div class="col">
+            <a href="booking.html" class="nav-link">
+              <i class="bi bi-calendar2 nav-icon"></i>
+              <span>Booking</span>
+            </a>
+          </div>
+          <div class="col">
+            <a href="bookmark.html" class="nav-link">
+              <i class="bi bi-heart nav-icon"></i>
+              <span>Saved</span>
+            </a>
+          </div>
+          <div class="col">
+            <a href="profile.html" class="nav-link">
+              <i class="bi bi-person nav-icon"></i>
+              <span>Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Select all heart buttons
+        const favoriteButtons = document.querySelectorAll(".favorite-btn");
+
+        favoriteButtons.forEach((button) => {
+          button.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent any default behavior
+
+            // Toggle the heart icon
+            const icon = this.querySelector("i");
+            if (icon.classList.contains("far")) {
+              icon.classList.remove("far");
+              icon.classList.add("fas");
+            } else {
+              icon.classList.remove("fas");
+              icon.classList.add("far");
+            }
+          });
+        });
+      });
+    </script>
+
+    <script>
+      lightbox.option({
+        resizeDuration: 200,
+        wrapAround: true,
+        positionFromTop: 100,
+        alwaysShowNavOnTouchDevices: true,
+        albumLabel: "صورة %1 من %2",
+        fitImagesInViewport: true, // Ensures images fit within the viewport
+        maxWidth: window.innerWidth * 0.9, // Responsive max width
+        maxHeight: window.innerHeight * 0.8, // Responsive max height
+      });
+    </script>
+    <script>
+      // Function to update Lightbox dimensions
+      function updateLightboxDimensions() {
+        const lightboxImage = document.querySelector(".lb-image");
+        if (lightboxImage) {
+          lightboxImage.classList.add("lightbox-image");
+        }
+      }
+
+      // Initialize Lightbox with responsive options
+      lightbox.option({
+        resizeDuration: 200,
+        wrapAround: true,
+        positionFromTop: 100,
+        alwaysShowNavOnTouchDevices: true,
+        albumLabel: "صورة %1 من %2",
+        fitImagesInViewport: true,
+        maxWidth: window.innerWidth * 0.9, // 90% of viewport width
+        maxHeight: window.innerHeight * 0.8, // 80% of viewport height
+      });
+
+      // Add custom class to Lightbox images
+      document.addEventListener("lightbox:show", updateLightboxDimensions);
+
+      // Update Lightbox dimensions on window resize
+      window.addEventListener("resize", function () {
+        lightbox.option({
+          maxWidth: window.innerWidth * 0.9,
+          maxHeight: window.innerHeight * 0.8,
+        });
+        updateLightboxDimensions();
+      });
+    </script>
+
+    <script>
+      // Add a class to Lightbox images after they're loaded
+      document.addEventListener("lightbox:show", function (event) {
+        const lightboxImage = document.querySelector(".lb-image");
+        if (lightboxImage) {
+          lightboxImage.classList.add("lightbox-image");
+        }
+      });
+    </script>
+  </body>
+</html>
