@@ -148,33 +148,6 @@
         }
       }
 
-      .car-card {
-        border-radius: 1rem;
-        overflow: hidden;
-        transition: transform 0.3s ease;
-      }
-
-      .car-card:hover {
-        transform: translateY(-5px);
-      }
-
-      .car-image-container {
-        height: 180px;
-        position: relative;
-      }
-      .car-image-container:first-of-type {
-        margin: 5%;
-        height: 100%;
-      }
-
-      .car-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .car-image {
-        border-radius: 25px;
-      }
       .favorite-btn {
         position: absolute;
         top: 10px;
@@ -215,6 +188,7 @@
         font-size: 0.9rem;
       }
     </style>
+    <link rel="stylesheet" href="stylized-card.css" />
   </head>
   <body>
     <div class="container">
@@ -502,28 +476,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Select all heart buttons
-        const favoriteButtons = document.querySelectorAll(".favorite-btn");
-
-        favoriteButtons.forEach((button) => {
-          button.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent any default behavior
-
-            // Toggle the heart icon
-            const icon = this.querySelector("i");
-            if (icon.classList.contains("far")) {
-              icon.classList.remove("far");
-              icon.classList.add("fas");
-            } else {
-              icon.classList.remove("fas");
-              icon.classList.add("far");
-            }
-          });
-        });
-      });
-    </script>
+    <script src="./like-toggle.js"></script>
 
     <script>
       lightbox.option({

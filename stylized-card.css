@@ -1,0 +1,27 @@
+.car-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+}
+
+.car-image-container {
+  height: 180px;
+  position: relative;
+}
+.car-image-container:first-of-type {
+  margin: 5%;
+  height: 100%;
+}
+
+.car-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.car-image {
+  border-radius: 25px;
+}
