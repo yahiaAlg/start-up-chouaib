@@ -1,6 +1,7 @@
 /*by sharing the the text*/
-let content = document.body.querySelector(".container").outerHTML;
+let content = document.body.querySelector(".status-card").textContent;
 const page = content;
+console.log(content);
 // Initialize components when document is ready
 document.addEventListener("DOMContentLoaded", function () {
   // Add event listeners
