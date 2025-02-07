@@ -1,89 +1,725 @@
-<h1 class="fs-4 fw-bold mb-2">Arabesque Alger</h1>
-<p class="text-muted">
-  <i class="fas fa-location-dot me-1"></i>
-  Bd Mouloud BEL HOUCHETE, Sidi M'Hamed 16000
-</p>
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>حجز الفنادق والمطاعم والسيارات</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="header.css" />
+    <style>
+      .tab-button {
+        flex: 1;
+        padding: 0.75rem;
+        border-radius: 12px;
+        background-color: #f8f9fa;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        color: #6c757d;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
 
-<!-- Included Features -->
-<div class="d-flex gap-4 mb-4">
-  <div class="d-flex align-items-center gap-2">
-    <i class="fas fa-wifi"></i>
-    <span>واي فاي مجاني</span>
-  </div>
-  <div class="d-flex align-items-center gap-2">
-    <i class="fas fa-coffee"></i>
-    <span>فطور مجاني</span>
-  </div>
-  <div class="d-flex align-items-center gap-2">
-    <i class="fas fa-star text-warning"></i>
-    <span>4.0</span>
-  </div>
-</div>
+      .tab-button.active {
+        background-color: #0dcaf0;
+        color: white;
+      }
 
-<!-- Description -->
-<h2 class="fs-5 fw-bold mb-3">الوصف</h2>
-<p class="mb-4">
-  يتمتع فندقنا الخمس نجوم ماريوت الجزائر باب الزوار بموقع مثالي، بالقرب من مطار
-  هواري بومدين ووسط المدينة ومركز المعارض.
-</p>
+      .search-form {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
 
-<!-- Table Types -->
-<h2 class="fs-5 fw-bold mb-3">الطاولات المتوفرة</h2>
-<div class="services-grid">
-  <div class="service-item">
-    <i class="fas fa-users service-check"></i>
-    <span>طاولة رباعية</span>
-  </div>
-  <div class="service-item">
-    <i class="fas fa-users service-check"></i>
-    <span>طاولة فردية</span>
-  </div>
-  <div class="service-item">
-    <i class="fas fa-users service-check"></i>
-    <span>طاولة ثنائية</span>
-  </div>
-</div>
+      .form-group {
+        border-bottom: 1px solid #f1f1f1;
+        padding: 1rem;
+        margin: 0;
+        background-color: #fff;
+      }
 
-<!-- Menu -->
-<h2 class="fs-5 fw-bold mb-3">قائمة الطعام</h2>
-<div class="services-grid">
-  <div class="service-item">
-    <i class="fas fa-utensils service-check"></i>
-    <span>اطباق الشاورما</span>
-  </div>
-  <div class="service-item">
-    <i class="fas fa-utensils service-check"></i>
-    <span>اطباق الأرز</span>
-  </div>
-  <div class="service-item">
-    <i class="fas fa-bowl-food service-check"></i>
-    <span>مقبلات ساخنة</span>
-  </div>
-  <div class="service-item">
-    <i class="fas fa-bowl-food service-check"></i>
-    <span>مقبلات باردة</span>
-  </div>
-  <div class="service-item">
-    <i class="fas fa-pizza-slice service-check"></i>
-    <span>بيتزا</span>
-  </div>
-  <div class="service-item">
-    <i class="fas fa-bowl-food service-check"></i>
-    <span>شوربة</span>
-  </div>
-  <div class="service-item">
-    <i class="fas fa-salad service-check"></i>
-    <span>سلطة</span>
-  </div>
-</div>
+      .form-group:first-child {
+        border-radius: 12px 12px 0 0;
+      }
 
-<!-- Price -->
-<div class="book-now-container">
-  <div class="container d-flex justify-content-between align-items-center">
-    <div>
-      <small class="text-muted">ابتداءً من</small>
-      <div class="fw-bold">1200 دج</div>
+      .form-group:last-of-type {
+        border-bottom: none;
+      }
+
+      .chevron-icon {
+        color: #0dcaf0;
+        font-size: 1.2rem;
+        margin: 0 0.5rem;
+      }
+
+      .form-control,
+      .form-select {
+        border: none;
+        padding: 0.5rem 0;
+        font-size: 0.9rem;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        box-shadow: none;
+        background-color: transparent;
+      }
+
+      .form-select {
+        background-position: left 0.25rem center;
+        padding-left: 1.5rem;
+      }
+
+      .input-icon {
+        color: #0dcaf0;
+        width: 24px;
+        text-align: center;
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #2d3436;
+        margin-bottom: 1rem;
+      }
+
+      .view-all {
+        color: #0dcaf0;
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+
+      .hotel-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        height: 100%;
+      }
+
+      .hotel-card img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+      }
+
+      .hotel-info {
+        padding: 1rem;
+      }
+
+      .hotel-name {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        color: #2d3436;
+      }
+
+      .hotel-location {
+        font-size: 0.8rem;
+        color: #6c757d;
+        margin-bottom: 0.5rem;
+      }
+
+      .hotel-rating {
+        font-size: 0.9rem;
+      }
+
+      .hotel-price {
+        color: #0dcaf0;
+        font-size: 0.9rem;
+        direction: ltr;
+        font-weight: 500;
+      }
+
+      .search-btn {
+        background-color: #0dcaf0;
+        text-align: center;
+        color: white;
+        display: block;
+        border: none;
+        border-radius: 8px;
+        padding: 0.875rem;
+        font-weight: 500;
+        margin: 0.5rem 1rem 1rem;
+        width: calc(100% - 2rem);
+        transition: background-color 0.3s ease;
+      }
+
+      .search-btn:hover {
+        background-color: #0babcf;
+      }
+
+      .scroll-container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .scroll-container::-webkit-scrollbar {
+        display: none;
+      }
+
+      .hotel-card {
+        scroll-snap-align: start;
+        border-radius: 12px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+      }
+
+      .hotel-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .hotel-card img {
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 1rem;
+      }
+
+      .card-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+    </style>
+    <link rel="stylesheet" href="bottom-navigation.css" />
+  </head>
+  <body>
+    <div class="container py-4">
+      <!-- Header -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="profile-image">
+          <a href="profile.html">
+            <a href="profile.html">
+              <img src="https://i.pravatar.cc/150" alt="" />
+            </a>
+          </a>
+        </div>
+        <button class="btn btn-outline rounded-circle p-0">
+          <i class="bi bi-bell fs-4"></i>
+        </button>
+      </div>
+
+      <!-- Welcome Text -->
+      <h1 class="h4 mb-4">
+        مرحبا، ما الذي تتطلع لحجزه اليوم لتجعل يومك أكثر راحة وسهولة!
+      </h1>
+
+      <!-- Booking Options -->
+      <div class="d-flex gap-3 mb-4">
+        <button class="tab-button" data-tab="car">
+          <i class="bi bi-car-front"></i>
+          <span>سيارة</span>
+        </button>
+        <button class="tab-button" data-tab="restaurant">
+          <i class="bi bi-shop"></i>
+          <span>مطعم</span>
+        </button>
+        <button class="tab-button active" data-tab="hotel">
+          <i class="bi bi-building"></i>
+          <span>فندق</span>
+        </button>
+      </div>
+
+      <!-- Search Forms -->
+      <div class="search-form mb-4">
+        <!-- Hotel Search Form -->
+        <div id="hotelForm" class="p-2 search-form mb-4">
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-geo-alt input-icon me-2"></i>
+              <select class="form-select">
+                <option>الجزائر</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-calendar input-icon me-2"></i>
+              <input
+                type="date"
+                class="form-control"
+                value="15 جوان، الثلاثاء 2024"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-calendar input-icon me-2"></i>
+              <input
+                type="date"
+                class="form-control"
+                value="18 اوت، الخميس 2024"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-people input-icon me-2"></i>
+              <select class="form-select">
+                <option>2 بالغين</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-currency-dollar input-icon me-2"></i>
+              <select class="form-select">
+                <option>15000 - 20000</option>
+              </select>
+            </div>
+          </div>
+          <a href="hotel-search.html" class="search-btn">بحث</a>
+        </div>
+
+        <!-- Restaurant Search Form -->
+        <div
+          id="restaurantForm"
+          class="p-2 search-form mb-4"
+          style="display: none"
+        >
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-geo-alt input-icon me-2"></i>
+              <select class="form-select">
+                <option>الجزائر</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-calendar input-icon me-2"></i>
+              <input
+                type="date"
+                class="form-control"
+                value="15 جوان، الثلاثاء 2024"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="from-time" class="form-label pe-3">من الساعة</label>
+            <div class="d-flex align-items-center">
+              <i class="bi bi-clock input-icon me-2"></i>
+              <input
+                type="time"
+                class="form-control"
+                id="from-time"
+                value="12:00"
+                min="00:00"
+                max="23:59"
+                step="1"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="from-time" class="form-label pe-3">إلى الساعة</label>
+            <div class="d-flex align-items-center">
+              <i class="bi bi-clock input-icon me-2"></i>
+              <input
+                type="time"
+                class="form-control"
+                id="from-time"
+                value="12:00"
+                min="00:00"
+                max="23:59"
+                step="1"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-people input-icon me-2"></i>
+              <select class="form-select">
+                <option>طاولة لشخصين</option>
+              </select>
+            </div>
+          </div>
+          <a href="restaurant-search.html" class="search-btn">بحث</a>
+        </div>
+
+        <!-- Car Search Form -->
+        <div id="carForm" class="p-2 search-form mb-4" style="display: none">
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-geo-alt input-icon me-2"></i>
+              <select class="form-select">
+                <option>الجزائر</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-calendar input-icon me-2"></i>
+              <input
+                type="date"
+                class="form-control"
+                value="15 جوان، الثلاثاء 2024"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-car-front input-icon me-2"></i>
+              <select class="form-select">
+                <option>سيارة اقتصادية</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-currency-dollar input-icon me-2"></i>
+              <select class="form-select">
+                <option>1200 - 2000</option>
+              </select>
+            </div>
+          </div>
+          <a href="car-search.html" class="search-btn">بحث</a>
+        </div>
+      </div>
+
+      <!-- Recent Sections -->
+      <!-- Hotels Section -->
+      <div id="hotelsRecent" class="recent-section mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="h5 m-0">فندق بالقرب منك</h2>
+          <a href="listings-hotels.html" class="text-info text-decoration-none"
+            >مشاهدة الكل</a
+          >
+        </div>
+        <div class="position-relative overflow-hidden">
+          <div class="d-flex gap-3 overflow-auto pb-3 scroll-container">
+            <!-- Hotel Cards -->
+            <div class="card hotel-card flex-shrink-0" style="width: 280px">
+              <a href="./listing-detail-hotel.html">
+                <img
+                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945"
+                  alt="Hotel"
+                />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Algiers Marriott</h5>
+                <p class="card-text text-muted small">Hotel Bab Ezzouar</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span>4.0</span>
+                  </div>
+                  <span class="text-info">12000 د/الليلة</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card hotel-card flex-shrink-0" style="width: 280px">
+              <a href="./listing-detail-hotel.html">
+                <img
+                  src="https://images.unsplash.com/photo-1618773928121-c32242e63f39"
+                  alt="Hotel"
+                />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Hotel Sidi Yahia</h5>
+                <p class="card-text text-muted small">Hydra, Alger</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span>4.0</span>
+                  </div>
+                  <span class="text-info">14000 د/الليلة</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card hotel-card flex-shrink-0" style="width: 280px">
+              <a href="./listing-detail-hotel.html">
+                <img
+                  src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa"
+                  alt="Hotel"
+                />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Sofitel Algiers</h5>
+                <p class="card-text text-muted small">Hamma, Alger</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span>4.5</span>
+                  </div>
+                  <span class="text-info">18000 د/الليلة</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cars Section -->
+      <div id="carsRecent" class="recent-section mb-5" style="display: none">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="h5 m-0">وكالة سيارات بالقرب منك</h2>
+          <a href="listings-cars.html" class="text-info text-decoration-none"
+            >مشاهدة الكل</a
+          >
+        </div>
+        <div class="position-relative overflow-hidden">
+          <div class="d-flex gap-3 overflow-auto pb-3 scroll-container">
+            <!-- Car Rental Cards -->
+            <div class="card hotel-card flex-shrink-0" style="width: 280px">
+              <a href="./listing-detail-car-agency.html.html">
+                <img
+                  src="https://images.unsplash.com/photo-1580273916550-e323be2ae537"
+                  alt="Car"
+                />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">LOCATION NUMBER ONE</h5>
+                <p class="card-text text-muted small">Drarria, alger</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span>4.0</span>
+                  </div>
+                  <span class="text-info">5000 د/اليوم</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card hotel-card flex-shrink-0" style="width: 280px">
+              <a href="./listing-detail-car-agency.html.html">
+                <img
+                  src="https://images.unsplash.com/photo-1550355291-bbee04a92027"
+                  alt="Car"
+                />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">AUTO DZ LOC</h5>
+                <p class="card-text text-muted small">KOUBA, ALGER</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span>4.0</span>
+                  </div>
+                  <span class="text-info">6000 د/اليوم</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card hotel-card flex-shrink-0" style="width: 280px">
+              <a href="./listing-detail-car-agency.html.html">
+                <img
+                  src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2"
+                  alt="Car"
+                />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Luxury Cars</h5>
+                <p class="card-text text-muted small">Ben Aknoun, Alger</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span>4.2</span>
+                  </div>
+                  <span class="text-info">8000 د/اليوم</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Restaurants Section -->
+      <div
+        id="restaurantsRecent"
+        class="recent-section mb-5"
+        style="display: none"
+      >
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="h5 m-0">مطعم بالقرب منك</h2>
+          <a
+            href="listings-restaurants.html"
+            class="text-info text-decoration-none"
+            >مشاهدة الكل</a
+          >
+        </div>
+        <div class="position-relative overflow-hidden">
+          <div class="d-flex gap-3 overflow-auto pb-3 scroll-container">
+            <!-- Restaurant Cards -->
+            <div class="card hotel-card flex-shrink-0" style="width: 280px">
+              <a href="./listing-detail-restaurant.html">
+                <img
+                  src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4"
+                  alt="Restaurant"
+                />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Le Bistrot</h5>
+                <p class="card-text text-muted small">Hydra, Alger</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span>4.5</span>
+                  </div>
+                  <span class="text-info">$$</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card hotel-card flex-shrink-0" style="width: 280px">
+              <a href="./listing-detail-restaurant.html">
+                <img
+                  src="https://images.unsplash.com/photo-1514933651103-005eec06c04b"
+                  alt="Restaurant"
+                />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">La Terrasse</h5>
+                <p class="card-text text-muted small">Sidi Yahia, Alger</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span>4.3</span>
+                  </div>
+                  <span class="text-info">$$$</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card hotel-card flex-shrink-0" style="width: 280px">
+              <a href="./listing-detail-restaurant.html">
+                <img
+                  src="https://images.unsplash.com/photo-1559339352-11d035aa65de"
+                  alt="Restaurant"
+                />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Le Petit Coin</h5>
+                <p class="card-text text-muted small">Dely Ibrahim, Alger</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span>4.1</span>
+                  </div>
+                  <span class="text-info">$$</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <button class="btn btn-primary px-5">احجز الآن</button>
-  </div>
-</div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav py-2 fixed-bottom">
+      <div class="container">
+        <div class="row g-0 text-center">
+          <div class="col">
+            <a href="index.html" class="nav-link active">
+              <i class="bi bi-house nav-icon"></i>
+              <span>Home</span>
+            </a>
+          </div>
+          <div class="col">
+            <a href="booking.html" class="nav-link">
+              <i class="bi bi-calendar2 nav-icon"></i>
+              <span>Booking</span>
+            </a>
+          </div>
+          <div class="col">
+            <a href="bookmark.html" class="nav-link">
+              <i class="bi bi-heart nav-icon"></i>
+              <span>Saved</span>
+            </a>
+          </div>
+          <div class="col">
+            <a href="profile.html" class="nav-link">
+              <i class="bi bi-person nav-icon"></i>
+              <span>Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Tab switching functionality
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const forms = {
+          hotel: document.getElementById("hotelForm"),
+          restaurant: document.getElementById("restaurantForm"),
+          car: document.getElementById("carForm"),
+        };
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const tab = button.dataset.tab;
+
+            // Update active tab
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            // Show corresponding form
+            Object.values(forms).forEach((form) => {
+              if (form) {
+                form.style.display = "none";
+              }
+            });
+            if (forms[tab]) {
+              forms[tab].style.display = "block";
+            }
+          });
+        });
+
+        const recentSections = {
+          hotel: document.getElementById("hotelsRecent"),
+          restaurant: document.getElementById("restaurantsRecent"),
+          car: document.getElementById("carsRecent"),
+        };
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const tab = button.dataset.tab;
+
+            // Update active tab
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            // Show corresponding recent section
+            Object.values(recentSections).forEach((section) => {
+              if (section) section.style.display = "none";
+            });
+
+            if (recentSections[tab])
+              recentSections[tab].style.display = "block";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
