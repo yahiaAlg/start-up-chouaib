@@ -13,67 +13,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="./bottom-navigation.css" />
-    <style>
-      body {
-        background-color: #f8f9fa;
-      }
-      .profile-header {
-        background: linear-gradient(135deg, #00d4ff 0%, #00a7ff 100%);
-        border-radius: 0 0 20px 20px;
-        padding: 2rem 1rem;
-        color: white;
-      }
-      .menu-item {
-        padding: 1rem;
-        border-bottom: 1px solid #eee;
-        color: #333;
-        text-decoration: none;
-      }
-      .menu-item:hover {
-        background-color: #f8f9fa;
-      }
-      .profile-avatar {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-
-      .category-tabs {
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-      .category-tabs::-webkit-scrollbar {
-        display: none;
-      }
-      .category-tab {
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        margin: 0 0.5rem;
-        border-radius: 20px;
-        background: #e9ecef;
-        color: #495057;
-        text-decoration: none;
-      }
-      .category-tab.active {
-        background: #00a7ff;
-        color: white;
-      }
-      .listing-card {
-        border-radius: 15px;
-        overflow: hidden;
-        transition: transform 0.2s;
-      }
-      .listing-card:hover {
-        transform: translateY(-5px);
-      }
-      .listing-image {
-        height: 200px;
-        object-fit: cover;
-      }
-    </style>
+    <link rel="stylesheet" href="./profile.css" />
   </head>
   <body>
     <!-- Profile Header -->
@@ -279,40 +219,6 @@
     </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(() => {
-          document.querySelector(".category-tabs a").click();
-        }, 200);
-        // Add event listeners for the bottom navigation links
-        document.querySelectorAll(".category-tabs a").forEach((link) => {
-          link.addEventListener("click", (event) => {
-            /*make the latest clicked category button with active class and remove it from the previous one */
-            const previous = document
-              .querySelector(".category-tabs a.active")
-              .classList.remove("active");
-
-            /* get the latest clicked element index in the list */
-            const latest = Array.prototype.indexOf.call(
-              document.querySelectorAll(".category-tabs a"),
-              event.target
-            );
-
-            /* make the latest clicked category button with active class and hide the sections which have an index other than it in the secitons list  */
-            const sections = [...document.querySelectorAll("section")];
-            console.log(sections);
-            for (let i = 0, len = sections.length; i < len; i++) {
-              if (i !== latest) {
-                sections[i].style.display = "none";
-              } else {
-                sections[i].style.display = "block";
-              }
-            }
-            /*make the latest clicked category button with active class*/
-            event.target.classList.add("active");
-          });
-        });
-      });
-    </script>
+    <script src="./profile.js"></script>
   </body>
 </html>
