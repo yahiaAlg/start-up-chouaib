@@ -16,30 +16,30 @@
 .favorite-btn:hover {
   background-color: rgba(255, 255, 255, 1);
 }
-.car-card {
+.styled-card {
   border-radius: 1rem;
   overflow: hidden;
   transition: transform 0.3s ease;
 }
 
-.car-card:hover {
+.styled-card:hover {
   transform: translateY(-5px);
 }
 
-.car-image-container {
+.styled-image-container {
   height: 180px;
   position: relative;
 }
-.car-image-container:first-of-type {
+.styled-image-container:first-of-type {
   margin: 5%;
   height: 100%;
 }
 
-.car-image {
+.styled-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.car-image {
+.styled-image {
   border-radius: 25px;
 }
