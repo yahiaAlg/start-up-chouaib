@@ -222,6 +222,8 @@
         font-size: 0.9rem;
       }
     </style>
+    <link rel="stylesheet" href="./star-rating.css" />
+    <script src="./star-rating.js"></script>
   </head>
   <body>
     <div class="container">
@@ -234,7 +236,7 @@
             class="main-image"
           />
         </a>
-        <button class="back-btn">
+        <button class="back-btn" onclick="javascript:window.history.back();">
           <i class="fas fa-arrow-left"></i>
         </button>
         <button class="favorite-btn">
@@ -295,9 +297,15 @@
               <i class="fas fa-coffee"></i>
               <span>فطور مجاني</span>
             </div>
-            <div class="d-flex align-items-center gap-2">
-              <i class="fas fa-star text-warning"></i>
-              <span>4.0</span>
+            <div class="star-rating d-flex flex-row">
+              <div class="stars-container">
+                <i class="fas fa-star" data-value="1"></i>
+                <i class="fas fa-star" data-value="2"></i>
+                <i class="fas fa-star" data-value="3"></i>
+                <i class="fas fa-star" data-value="4"></i>
+                <i class="fas fa-star" data-value="5"></i>
+              </div>
+              <div class="rating-value ms-2">0</div>
             </div>
           </div>
 
