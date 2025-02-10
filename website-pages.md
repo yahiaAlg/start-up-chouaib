@@ -39,3 +39,12 @@ confirm-payment
 https://poe.com/s/fvIQhhSVnBhKVypifRfx
 https://poe.com/s/J3dfiKhz8H4ribUTpWyG
 ticket
+
+https://poe.com/s/pW0lOF9FPCV5rjSzA3QY
+https://poe.com/s/T0y54CSSLH9z6kmuxNW6
+https://poe.com/s/NZny7F7f1rV2uYk1BV6V
+https://poe.com/s/J1F1ZV8RRa5ngEWP0pi1
+models
+
+https://poe.com/s/6Z9lCAJ6Gwz0zFOdzXEk
+django-accounts-app
